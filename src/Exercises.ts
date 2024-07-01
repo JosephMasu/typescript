@@ -53,3 +53,26 @@ orderStatus = 'delivered';
 let discount: number | string;
 discount = 20;
 discount = '20%';
+
+// still array\
+let prices:number[] = [100, 60,75];
+// prices.push('hello');
+
+
+//challenge
+let temperature : number[] = [20,25,30];
+let colors : string [] = ['blue', 'red', 'chacolate', 'marron'];
+let mixed : (number | string)[] = [1, 'two', 3];
+
+
+//object
+let car: { brand: string; year:number } = {brand: 'toyata', year: 2020};
+car.brand = 'ford';
+console.log(car);
+
+let book = {title: 'book', cost: 30}
+let pen = {title: 'pen', cost: 10}
+let notebook = {title: 'boonotebookk'}
+let items:{readonly title: string; cost?:number}[] = [book, pen, notebook]
+console.log(items[0]);
+
