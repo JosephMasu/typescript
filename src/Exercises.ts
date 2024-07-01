@@ -32,3 +32,24 @@ console.log(tax + tax);
 let requestStatus: 'pending' | 'success' | 'error' = 'pending';
 requestStatus = 'error';
 console.log(requestStatus);
+
+//array
+const books = ['Java', 'Barave New World', 'Celcuis 452'];
+let foundBook: string | undefined;
+for (let book of books) {
+    if(book ==='Java'){
+        foundBook = book;
+        foundBook = foundBook.toUpperCase();
+        break;
+    }
+}
+console.log(foundBook?.length);
+
+//challenge
+let  orderStatus:'processing' | 'shipped' | 'delivered' = 'processing';
+orderStatus = 'shipped';
+orderStatus = 'delivered';
+
+let discount: number | string;
+discount = 20;
+discount = '20%';
