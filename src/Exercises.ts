@@ -134,3 +134,23 @@ if (isNameInList(nameToChek)) {
     console.log(`${nameToChek} isn't in the list`);
 
 }
+
+//optional and defaul parameters in function
+function calculatePrice(price: number, discount?: number):number{
+    return price - (discount || 0);
+}
+let priceAfterDiscount = calculatePrice(200,20);
+let priceWithoutDiscount = calculatePrice(200);
+
+console.log(`${priceAfterDiscount} is the final price`);
+console.log(`${priceWithoutDiscount } is the price without discount`);
+
+
+function calculatePoints(initialScore: number, penaltyPoints:number=0):number{
+    return initialScore + penaltyPoints;
+}
+let pointsAfterPanalties = calculatePoints(200,20);
+let pointsWithoutPanalties = calculatePoints(200);
+console.log(` the points after penalties are ${pointsAfterPanalties}`);
+console.log(` the points without penalties are ${pointsWithoutPanalties}`);
+
