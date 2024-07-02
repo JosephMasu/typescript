@@ -95,3 +95,42 @@ function sayHi(name:string ){
    
 }
 sayHi('muhindo');
+
+
+function calculateDiscount(price:number){
+    const hasDscount =true;
+console.log(`Discount Available? ${hasDscount}`);
+
+    return price * 0.89;
+    if (hasDscount) return 'Discout Applied';
+    
+}
+const finalPrice =calculateDiscount(21);
+console.log(`Prodcut is ${finalPrice}`);
+
+
+function addThree(number: any){
+    let anotherNumber: number = 4;
+    return number+ anotherNumber;
+}
+
+const result = addThree(3);
+const somevalue = result;
+console.log(somevalue);
+
+//challenge
+
+let names:string[] = ['Joe', 'Gaga', 'Zig'];
+
+function isNameInList(name:string):boolean{
+    return names.includes(name);
+}
+
+let nameToChek = 'Allan';
+if (isNameInList(nameToChek)) {
+  console.log(`${nameToChek} is in the list`);
+    
+}else{
+    console.log(`${nameToChek} isn't in the list`);
+
+}
