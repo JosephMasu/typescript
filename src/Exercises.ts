@@ -76,3 +76,22 @@ let notebook = {title: 'boonotebookk'}
 let items:{readonly title: string; cost?:number}[] = [book, pen, notebook]
 console.log(items[0]);
 
+
+//challlenge
+let bike: { brand: string; year:number } = {brand: 'yamaha', year: 2010};
+bike.brand='TVS';
+console.log(bike.brand);
+
+let laptps: { brand: string; year:number } = {brand: 'toshiba', year: 2017};
+
+let product1 = {title: 'shirt', price: 20};
+let product2 = {title: 'pants'};
+let products: { title: string; price?: number }[] = [product1, product2];
+products.push({ title: 'Shoes', price: 20 }); // This will result in a TypeScript error
+console.log(products);
+
+function sayHi(name:string ){ 
+   console.log(`Hello there ${name.toUpperCase()}`);
+   
+}
+sayHi('muhindo');
