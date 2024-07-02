@@ -169,3 +169,23 @@ function sum(message: string, ...numbers:number[]){
 let result3 = sum('The total is :', 1,2,3,4,5,6,7,8,9,10);
 console.log(result3);
 
+//callback function
+
+function logMessage(message: string):void{
+    console.log(message);
+}
+logMessage('Hell TS');
+
+//unoin types as function parameters
+
+function processInput (input: string | number){
+if (typeof input === 'number') {
+    console.log(input *3);
+    
+}else{
+    console.log(input.toLocaleUpperCase());
+    
+}
+}
+processInput(10);
+processInput("typescript");
