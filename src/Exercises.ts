@@ -154,3 +154,18 @@ let pointsWithoutPanalties = calculatePoints(200);
 console.log(` the points after penalties are ${pointsAfterPanalties}`);
 console.log(` the points without penalties are ${pointsWithoutPanalties}`);
 
+//rest parameters in TS
+function sum(message: string, ...numbers:number[]){
+    const doubled = numbers.map((num) =>num *2);
+    console.log(doubled);
+
+    let total = numbers.reduce((previous, current) =>{
+        return previous+current;
+    }, 0);
+    return `${message} ${total}`;
+    
+}
+
+let result3 = sum('The total is :', 1,2,3,4,5,6,7,8,9,10);
+console.log(result3);
+
