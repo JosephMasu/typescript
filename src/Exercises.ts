@@ -314,3 +314,44 @@ function createEmployee({ id }: { id: number }): {
     printStaffDetails(Anna);
     printStaffDetails(Zig);
 
+    //intersection types in union
+    type Livres = { id: number; name: string; price: number };
+    //Or DiscountedBook = Book & { discount:number}
+    const livre1:Livres = {
+        id: 1,
+        name: 'Learn java',
+        price: 23,
+    };
+    const livre2:Livres = {
+        id: 2,
+        name: 'Learn typeScript',
+        price: 30,
+    };
+    //Or const DiscountedLivre:DiscountedBook={}
+    const DiscountedLivre:Livres &{discount:number} = {
+        id: 3,
+        name: 'Learn JavaScript',
+        price: 41,
+        discount: 0.50,
+    };
+    let realPrice = DiscountedLivre.price - DiscountedLivre.discount;
+    console.log(livre1.price);
+    console.log(livre2.price);
+    console.log(realPrice);
+
+    //Interface
+
+    interface Book {
+        readonly isbn: number;
+        title: string;
+        author: string;
+        genre?: string;
+      }
+      
+      const deepWork: Book = {
+        isbn: 9781455586691,
+        title: 'Deep Work',
+        author: 'Cal Newport',
+        genre: 'Self-help',
+      };
+    
