@@ -189,3 +189,17 @@ if (typeof input === 'number') {
 }
 processInput(10);
 processInput("typescript");
+
+//object as parameter in function
+
+function createEmployee({ id }: { id: number }): {
+    id: number;
+    isActive: boolean;
+  } {
+    return { id, isActive: id % 2 === 0 };
+  }
+
+  const one = createEmployee({id:18});
+  const two = createEmployee({id:19});
+  console.log(one, two);
+  
