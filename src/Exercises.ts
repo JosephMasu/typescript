@@ -341,17 +341,38 @@ function createEmployee({ id }: { id: number }): {
 
     //Interface
 
-    interface Book {
+    interface Book11 {
         readonly isbn: number;
+        price: number;
         title: string;
         author: string;
         genre?: string;
       }
       
-      const deepWork: Book = {
+      const deepWork: Book11 = {
         isbn: 9781455586691,
+        price: 32,
         title: 'Deep Work',
         author: 'Cal Newport',
         genre: 'Self-help',
       };
+      const JulietAndRomeo: Book11 = {
+        isbn: 558687066691,
+        price: 22,
+        title: 'ulietAndRomeo',
+        author: 'William Shakespeare',
+        genre: 'Romance',
+      };
+
+      const AlgorithAndCoding: Book11 &{discount:number}= {
+        isbn: 7068753897436691,
+        price: 42,
+        title: 'Algorithm And Coding',
+        author: 'Masu Muhindo',
+        genre: 'Programming',
+        discount: 3,
+      };
+      console.log(deepWork.price);
+      console.log(JulietAndRomeo.price);
+      console.log(AlgorithAndCoding.price - AlgorithAndCoding.discount);
     
