@@ -466,4 +466,25 @@ function createEmployee({ id }: { id: number }): {
       console.log(JulietAndRomeo.printSomething2(322));
       console.log(AlgorithAndCoding.printSomething2(433));
       
+      // interface Challenge
+      interface Computer {
+        readonly id: number; // cannot be changed once initialized
+        brand: string;
+        ram: number;
+        upgradeRam(increase: number): number;
+        storage?: number; // optional property
+      }
+      const laptop: Computer = {
+        id: 1,
+        brand: 'random brand',
+        ram: 8, // in GB
+        upgradeRam(amount: number) {
+          this.ram += amount;
+          return this.ram;
+        },
+      };
+      laptop.storage = 256; 
+
+        console.log(laptop.upgradeRam(4)); 
+        console.log(laptop);
       
