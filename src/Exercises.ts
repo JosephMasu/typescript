@@ -485,6 +485,6 @@ function createEmployee({ id }: { id: number }): {
       };
       laptop.storage = 256; 
 
-        console.log(laptop.upgradeRam(4)); 
+        console.log(laptop.upgradeRam(8)); 
         console.log(laptop);
       
