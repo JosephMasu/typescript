@@ -202,4 +202,23 @@ function createEmployee({ id }: { id: number }): {
   const one = createEmployee({id:18});
   const two = createEmployee({id:19});
   console.log(one, two);
+
+  //challenge
+  function processData(
+    input: string | number, 
+    config: { reverse: boolean } = {reverse: false}): string | number{
+        if (typeof input === 'number') {
+            return input * input;
+        }
+          else{
+            return config.reverse ? 
+            input.toUpperCase().split('').reverse().join()
+            : input.toUpperCase();
+        }
+    }
+    console.log(processData(10));
+    console.log(processData('Hello'));
+    console.log(processData('hello', {reverse: true}));
+    
+
   
