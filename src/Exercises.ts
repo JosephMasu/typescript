@@ -347,21 +347,71 @@ function createEmployee({ id }: { id: number }): {
         title: string;
         author: string;
         genre?: string;
-      }
+        printAuthor():void;
+        printTitle(message:string): string;
+        printSomeThing: (someValue: number)=>number;
+        printSomething2: (someValue2 :number)=>number;
+        printSomething3: (someValue3 :number)=>number;
+        
+
+    }
       
-      const deepWork: Book11 = {
+    const deepWork: Book11 = {
         isbn: 9781455586691,
         price: 32,
         title: 'Deep Work',
         author: 'Cal Newport',
         genre: 'Self-help',
+        printAuthor() {
+          console.log(this.genre);
+        },
+        printTitle(message){
+            return `${this.title} ${message}`
+        },
+        //options to set a method
+        //firstOption
+        printSomeThing: function(someValue){
+            return someValue;
+        },
+        //second 
+
+        printSomething2: (someValue2)=>{
+            return someValue2;
+        },
+        //third option 
+        printSomething3(someValue3) {
+            return someValue3;
+        },
+
+       
       };
       const JulietAndRomeo: Book11 = {
         isbn: 558687066691,
         price: 22,
-        title: 'ulietAndRomeo',
+        title: 'JulietAndRomeo',
         author: 'William Shakespeare',
         genre: 'Romance',
+        printAuthor(){
+            console.log(this.genre);
+            
+        },
+        printTitle(message){
+            return `${this.title} ${message}`
+        },
+        //options to set a method
+        //firstOption
+        printSomeThing: function(someValue){
+            return someValue;
+        },
+        //secondOption
+        printSomething2: (someValue2)=>{
+            return someValue2;
+        },
+        //ThirdOption
+        printSomething3(someValue3) {
+            return someValue3;
+        },
+
       };
 
       const AlgorithAndCoding: Book11 &{discount:number}= {
@@ -369,10 +419,51 @@ function createEmployee({ id }: { id: number }): {
         price: 42,
         title: 'Algorithm And Coding',
         author: 'Masu Muhindo',
-        genre: 'Programming',
+        genre: 'One step to coding',
         discount: 3,
+        printAuthor(){
+            console.log(AlgorithAndCoding.genre);  
+        }, 
+        printTitle(message){
+            return `${this.title} ${message}`
+        },
+        //options to set a method
+        //firstOption
+        printSomeThing: function(someValue){
+            return someValue;
+        },
+        //secondOption
+        printSomething2: (someValue2)=>{
+            return someValue2;
+        },
+        printSomething3(someValue3) {
+            return someValue3;
+        },
+
       };
-      console.log(deepWork.price);
-      console.log(JulietAndRomeo.price);
-      console.log(AlgorithAndCoding.price - AlgorithAndCoding.discount);
-    
+      deepWork.printAuthor();
+      JulietAndRomeo.printAuthor();
+      AlgorithAndCoding.printAuthor();
+
+      const result11 =deepWork.printTitle('Message11');
+      console.log(result11);
+      const result12 =JulietAndRomeo.printTitle('Message12');
+      const result13 =AlgorithAndCoding.printTitle('Message13');
+
+      
+      console.log(result12);
+      console.log(result13);
+
+      console.log(deepWork.printSomeThing(12));
+      console.log(JulietAndRomeo.printSomeThing(23));
+      console.log(AlgorithAndCoding.printSomeThing(34));
+
+      console.log(deepWork.printSomething2(21));
+      console.log(JulietAndRomeo.printSomething2(32));
+      console.log(AlgorithAndCoding.printSomething2(43));
+
+      console.log(deepWork.printSomething2(211));
+      console.log(JulietAndRomeo.printSomething2(322));
+      console.log(AlgorithAndCoding.printSomething2(433));
+      
+      
