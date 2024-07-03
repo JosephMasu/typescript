@@ -219,6 +219,98 @@ function createEmployee({ id }: { id: number }): {
     console.log(processData(10));
     console.log(processData('Hello'));
     console.log(processData('hello', {reverse: true}));
-    
+   
+    //Type Alias
+    type User = { id: number; name: string; isActive: boolean }
+    const john:User = {
+        id: 1,
+        name: 'john',
+        isActive: true,
+    };
+    const susan: User = {
+        id: 1,
+        name: 'susan',
+        isActive: false,
+    };
+      
+      function createUser(user: User): User{
 
+     
+        console.log(`Hello there ${user.name.toUpperCase()} !!!`);
+      
+        return user;
+      }
+    const createdJohn = createUser(john);
+    console.log(createdJohn);
+
+    const createdSusan = createUser(susan);
+    console.log(createdSusan);
+
+    let value: string | number;
+    value='hello';
+    console.log(value);
+    value=123;
+    console.log(value);
+
+    type Theme = 'Light' | 'Dark';
+    let theme: Theme;
+    theme ='Dark';
+    console.log(theme);
+    
+    theme = 'Light';
+    console.log(theme);
+
+
+    function setTheme(t:Theme){
+        theme =t;
+    }
+    setTheme('Dark');  
+    setTheme('Light'); 
+
+
+    //challenge
+     
+    type Employee = { id: number; name: string; department: string };
+    type Manager = { id: number; name: string; employees: Employee[] };
+    type Staff = Employee | Manager;
+
+    function printStaffDetails(staff: Staff):void{
+
+        if ('employees' in staff) {
+            console.log(`${staff.name} 
+                is a manger in the ${staff.employees.length} employees`);
+        }
+        else{
+            console.log(`${staff.name} 
+                is an employee in the ${staff.department} department`);
+            
+        }
+    }
+
+    const Alicia:Employee = {
+        id: 1,
+        name: 'Alicia',
+        department: "Sales",
+    };
+    const Gaga:Employee = {
+        id: 2,
+        name: 'Gaga',
+        department: "IT",
+    };
+    const Anna:Employee = {
+        id: 3,
+        name: 'Anna',
+        department: "Marketing",
+    };
   
+    const Zig:Manager = {
+        id: 1,
+        name: 'Gaga',
+        employees: [Alicia, Gaga, Anna],
+    };
+
+    printStaffDetails(Alicia);
+    printStaffDetails(Gaga);
+    printStaffDetails(Anna);
+    printStaffDetails(Zig);
+
