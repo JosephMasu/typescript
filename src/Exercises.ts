@@ -603,4 +603,60 @@ function createEmployee({ id }: { id: number }): {
       let randomPerson = getPersonDetails();
       console.log(randomPerson[0]);
       console.log(randomPerson[1]);
+
+      // enums
+
+      enum ServerResponseStatus{
+        success =200,
+        error = 500,
+      }
+      Object.values(ServerResponseStatus).forEach((value) => {
+        if (typeof value === 'number') {
+            console.log(value);
+        }
+        
+      });      
+      interface ServerResponse{
+        result: ServerResponseStatus;
+        data: string[];
+      }
+
+      function getServerResponse():ServerResponse{
+        return{
+            result:ServerResponseStatus.success,
+            data: ['first item', 'second item']
+        }
+      }
+      console.log(getServerResponse());
+      console.log(ServerResponseStatus);
+
+      //enum challenge
+      enum UserRole {
+        Admin,
+        Manager,
+        Employee,
+      }
+      
+      // Define a type alias named User
+      type User1 = {
+        id: number;
+        name: string;
+        role: UserRole;
+        contact: [string, string]; // Tuple: [email, phone]
+      };
+      
+      // Define a function named createUser
+      function createUser12(user: User1): User1 {
+        return user;
+      }
+      
+      // Call the createUser function
+      const user32: User1 = createUser12({
+        id: 1,
+        name: 'John Doe',
+        role: UserRole.Admin,
+        contact: ['john.doe@example.com', '123-456-7890'],
+      });
+      
+      console.log(user32);
       
