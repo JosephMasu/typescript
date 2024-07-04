@@ -487,4 +487,108 @@ function createEmployee({ id }: { id: number }): {
 
         console.log(laptop.upgradeRam(8)); 
         console.log(laptop);
+    
+      //  Interface - Merging, Extend, TypeGuard
+      interface Person {
+        name: string;
+        getDetails(): string;
+      }
+            
+      interface DogOwner {
+        dogName: string;
+        getDogDetails(): string;
+      }
+      interface Person {
+        age: number;
+        
+      }
+
+      const person: Person = {
+        name: 'joe',
+        age: 25,
+        getDetails(){
+            return `Name: ${this.name}, Age: ${this.age}`;
+        },
+      };
+
+      interface Employee23 extends Person{
+        employeeId: number,
+      }
+      const employee:Employee23 = {
+        name: 'gaga',
+        age: 23,
+        employeeId: 212121,
+        getDetails(){
+            return `Name: ${this.name}, Age: ${this.age}, Id: ${this.employeeId}`;
+        },
+      };
+
+      interface Manager01 extends Person, DogOwner{
+        managePeople(): void
+      }
+
+      const manger: Manager01= {
+        name: 'Bob',
+        age: 35,
+        dogName: 'Roman',
+        getDetails(){
+            return `Name: ${this.name}, Age: ${this.age}`;
+        },
+        getDogDetails(){
+            return `Name: ${this.dogName}`;
+        },
+        managePeople(){
+            console.log('managing people ...');
+            
+        },
+      };
+
+
+      console.log(person.getDetails());
+      console.log(employee.getDetails());
+      console.log(`${manger.getDetails()} ${manger.getDogDetails()}`);
+      manger.managePeople();
+
+      //challenge
+      interface Person {
+        name: string;
+      }
       
+      interface DogOwner extends Person {
+        dogName: string;
+      }
+      
+      interface Manager30 extends Person {
+        managePeople(): void;
+        delegateTasks(): void;
+      }
+      
+      const employee30: Person | DogOwner | Manager30 = getEmployee11();
+
+      function isManager(obj: Person | DogOwner | Manager30): obj is Manager30 {
+        return 'managePeople' in obj && 'delegateTasks' in obj;
+      }
+      if (isManager(employee30)) {
+        employee30.delegateTasks();
+      }
+      
+      function getEmployee11(): Person | DogOwner | Manager30 {
+        const random = Math.random();
+      
+        if (random < 0.33) {
+          return {
+            name: 'john',
+          } as Person;
+        } else if (random < 0.66) {
+          return {
+            name: 'sarah',
+            dogName: 'Rex',
+          } as DogOwner;
+        } else {
+          return {
+            name: 'bob',
+            managePeople: () => console.log('Managing people...'),
+            delegateTasks: () => console.log('Delegating tasks...'),
+          } as Manager30;
+        }
+      }
