@@ -659,4 +659,98 @@ function createEmployee({ id }: { id: number }): {
       });
       
       console.log(user32);
-      
+
+      let someValue: any = 'This is a string';
+
+    // Using type assertion to treat 'someValue' as a string
+    let strLength: number = (someValue as string).length;
+    console.log(strLength);
+
+    type Bird ={
+        name: string;
+    };
+    let birdString = '{"name": "Eagle"}';
+    let dogString = '{"breed": "Roman"}';
+
+    let birdObject = JSON.parse(birdString);
+    let dogObject = JSON.parse(dogString);
+    
+
+    let bird = birdObject as Bird;
+    let dog = dogObject as Bird;
+
+    console.log(bird.name);
+    console.log(dog.name);
+    
+    //type unkown
+    let unknownValue: unknown;
+    unknownValue = 'Hello World'; 
+    unknownValue = [1, 2, 3]; 
+    unknownValue = 42.3344556;
+// Now, let's try to use unknownValue
+if (typeof unknownValue === 'number') {
+    // TypeScript knows that unknownValue is a string in this block
+    console.log(unknownValue.toFixed(2)); // OK
+  }
+  
+  function runSomeCode() {
+    const random = Math.random();
+    if (random < 0.5) {
+      throw new Error('Something went wrong');
+    } else {
+      throw 'some error';
+    }
+  }
+  
+  try {
+    runSomeCode();
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message);
+    } else {
+      console.log(error);
+      console.log('there was an error....');
+    }
+  }    
+  //Type - "never"
+
+  type Theme1 = 'light' | 'dark';
+
+  function checkTheme(theme: Theme1): void {
+    if (theme === 'light') {
+      console.log('light theme');
+      return;
+    }
+    if (theme === 'dark') {
+      console.log('dark theme');
+      return;
+    }
+    theme;
+    // theme is of type never, because it can never have a value that is not 'light' or 'dark'.
+  }
+  checkTheme('dark');
+  checkTheme('light')
+
+  enum Color {
+    Red,
+    Blue,
+    Green,
+  }
+  function getColorName(color: Color) {
+    switch (color) {
+      case Color.Red:
+        return 'Red';
+      case Color.Blue:
+        return 'Blue';
+        case Color.Green:
+        return 'Green';
+      default:
+        // at build time
+        let unexpectedColor1: never = color;
+        // at runtime
+        throw new Error(`Unexpected color value: ${unexpectedColor1}`);
+     }
+  }
+console.log(getColorName(Color.Red)); // Red
+console.log(getColorName(Color.Blue)); // Blue
+console.log(getColorName(Color.Green)); // Green
