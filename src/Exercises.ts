@@ -592,3 +592,15 @@ function createEmployee({ id }: { id: number }): {
           } as Manager30;
         }
       }
+      //tuples
+      let personDetails: [string, number] = ['John', 25];
+
+      let date: readonly [number, number, number] = [12,17,2002];
+
+      function getPersonDetails():[string, number]{
+        return ['John', 20]
+      }
+      let randomPerson = getPersonDetails();
+      console.log(randomPerson[0]);
+      console.log(randomPerson[1]);
+      
