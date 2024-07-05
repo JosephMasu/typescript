@@ -912,3 +912,23 @@ async function someFunction():Promise<number> {
   return 1999;
 }
 const result31 = someFunction();
+
+//challenge
+
+function generateStringArray(length: number, value: string): string[]{
+  let result: string[]=[];
+  result = Array(length).fill(value);
+  return result;
+}
+function createArray<T>(length: number, value: T): Array<T>{
+  let result: T[]=[];
+  result = Array(length).fill(value);
+  return result;
+}
+
+let arraryStrings = createArray<string>(10, 'hello');
+let arraryNumbers = createArray<number>(10, 200);
+
+console.log(generateStringArray(5, 'Masu'))
+console.log(arraryNumbers);
+console.log(arraryStrings);
