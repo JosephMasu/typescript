@@ -754,3 +754,45 @@ if (typeof unknownValue === 'number') {
 console.log(getColorName(Color.Red)); // Red
 console.log(getColorName(Color.Blue)); // Blue
 console.log(getColorName(Color.Green)); // Green
+
+
+type ValueType = string | number | boolean;
+
+let value1: ValueType;
+const random = Math.random();
+value1 = random < 0.33 ? 'Hello' : random < 0.66 ? 123.456 : true;
+function checkvalue(value:ValueType): void{
+  if(typeof value === 'string'){
+    console.log(value.toUpperCase());
+    return; 
+  }
+  if(typeof value === 'number'){
+    console.log(value.toFixed());
+    return; 
+  }
+  console.log(`boolean: ${value}`);
+}
+checkvalue(value1);
+
+//equality narrowing
+
+type Dog = { type: 'dog'; name: string; bark: () => void };
+type Cat = { type: 'cat'; name: string; meow: () => void };
+type Animal = Dog | Cat;
+
+// function makeSound(animal: Animal){
+//   if (animal.type ==='dog') {
+//     animal.bark();
+//   }else{
+//     animal.meow();
+//   }
+// }
+function makeSound(animal: Animal) {
+  if ('bark' in animal) {
+    // TypeScript knows that `animal` is a Dog in this block
+    animal.bark();
+  } else {
+    // TypeScript knows that `animal` is a Cat in this block
+    animal.meow();
+  }
+}
