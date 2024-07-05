@@ -796,3 +796,16 @@ function makeSound(animal: Animal) {
     animal.meow();
   }
 }
+// challenge Truthy and falsy guard
+function printLength(str: string | null |undefined){
+  if (str) {
+    console.log(str.length);
+  }
+  else{
+    console.log('No string provided');
+  }
+}
+printLength('hello');
+printLength('');
+printLength(null);
+printLength(undefined);
