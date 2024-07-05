@@ -890,3 +890,25 @@ const newState = reducer(15, {
   timestamp:123})
   console.log(newState);
   
+  //generics
+
+function genericFunction<T>(agr:T):T{
+  return agr;
+}
+const someStringValue = genericFunction<string>('Hello world');
+const someNumberValue = genericFunction<number>(2);
+
+interface GenericInterface<T>{
+  value: T;
+  gatValue:()=>T;
+}
+const genericString: GenericInterface<string>={
+  value: 'Hello World',
+  gatValue(){
+    return this.value;
+  }
+}
+async function someFunction():Promise<number> {
+  return 1999;
+}
+const result31 = someFunction();
