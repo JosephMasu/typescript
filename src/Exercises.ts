@@ -809,3 +809,84 @@ printLength('hello');
 printLength('');
 printLength(null);
 printLength(undefined);
+
+//insatnce of class
+function checkInput(input: Date | string):string{
+  if (input instanceof Date) {
+    return input.getDate().toString();
+  }
+  return input
+}
+const fullYear = checkInput(new Date())
+console.log(fullYear);
+
+//challlengetype predicate
+type Student21 = {
+  name: string;
+  study: () => void;
+};
+
+type User21 = {
+  name: string;
+  login: () => void;
+};
+
+type Person21 = Student21 | User21;
+
+const randomPerson21 = (): Person21 => {
+  return Math.random() > 0.5
+    ? { name: 'john', study: () => console.log('Studying') }
+    : { name: 'mary', login: () => console.log('Logging in') } ;
+};
+
+const person21 = randomPerson21();
+console.log(person21);
+
+if ('study' in person21) {
+  person21.study();
+} else {
+  person21.login();
+}
+
+// Challenge - Discriminated Unions and exhaustive check 
+//using the never type
+// A discriminated union in TypeScript is a type that 
+//can be one of several different types, each identified 
+//by a unique literal property (the discriminator), 
+//allowing for type-safe handling of each possible variant.
+
+// starter code
+type IncrementAction = {
+  type: 'increment';
+  amount: number;
+  timestamp: number;
+  user: string;
+};
+
+type DecrementAction = {
+  type: 'decrement';
+  amount: number;
+  timestamp: number;
+  user: string;
+};
+
+type Action = IncrementAction | DecrementAction;
+
+function reducer(state:number, action:Action){
+  switch(action.type){
+    case 'increment':
+      return state + action.amount;
+    case 'decrement':
+      return state - action.amount;  
+    default:
+      const unexpectedAction:never = action;
+      throw new Error(`unexpectedAction ${unexpectedAction}`);
+  }
+}
+const newState = reducer(15, {
+  type:'decrement',
+  user:"Joe",
+  amount:20,
+  timestamp:123})
+  console.log(newState);
+  
