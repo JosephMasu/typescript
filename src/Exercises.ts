@@ -1047,3 +1047,20 @@ console.log(deepWork2.info);
 console.log(deepWork2);
 console.log(deepWork2.someInfo);
 console.log(deepWork2.checkOut); 
+
+
+interface IPerson12{
+  name21: string;
+  age21: number;
+  greet122():void;
+}
+class Person211 implements IPerson12 {
+  constructor(public name21: string, public age21: number) {}
+
+  greet122() {
+    console.log(
+      `Hello, my name is ${this.name21} and I'm ${this.age21} years old.`
+    );
+  }
+}
+const hipster = new Person211('shakeAndBake', 100);
