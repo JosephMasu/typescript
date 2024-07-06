@@ -1015,3 +1015,35 @@ console.log(myBook.isCheckOut());
 // console.log(myBook.athor12);
 // console.log(myBook.title12);
 
+
+//gettesr and setters
+
+class Book1 {
+  private _checkedOut: boolean = false; 
+
+  constructor(public readonly title: string, public author: string) {}
+
+  get info() {
+    return `${this.title} by ${this.author}`;
+  }
+
+  private set checkOut(checkedOut: boolean) {
+    this._checkedOut = checkedOut;
+  }
+
+  get checkOut() {
+    return this._checkedOut; 
+  }
+
+  public get someInfo() {
+    this.checkOut = true;
+    return `${this.title} by ${this.author}`;
+  }
+}
+
+const deepWork2 = new Book1('Bob Marley', 'Bob Marley');
+console.log(deepWork2.info);
+// deepWork2.checkOut = true; // This line will still cause an error because checkOut has a private setter
+console.log(deepWork2);
+console.log(deepWork2.someInfo);
+console.log(deepWork2.checkOut); 
