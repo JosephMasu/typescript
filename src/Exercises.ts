@@ -986,3 +986,32 @@ const example: Masu = {
 console.log(example.name);
 
 import bcryptjs from 'bcryptjs'
+
+//classes in TS
+class Book{
+  public title12: string;
+  public athor12: string;
+  private checkedOut: boolean =false;
+
+  constructor(title12:string , athor12:string){
+  this.title12= title12;
+  this.athor12= athor12;
+}
+public checkOut(){
+  this.checkedOut = this.toggleCheckedStatus();
+}
+public isCheckOut(){
+  return this.checkedOut = true;
+}
+private toggleCheckedStatus(){
+  return this.checkedOut;
+}
+}
+const myBook = new Book('My file', 'Damian Marley');
+// console.log(myBook);
+myBook.checkOut();
+console.log(myBook.isCheckOut());
+
+// console.log(myBook.athor12);
+// console.log(myBook.title12);
+
