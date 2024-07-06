@@ -969,7 +969,6 @@ async function fetchData(url: string):Promise<Tour[]> {
     const errMsg =
       error instanceof Error ? error.message : 'there was an error...';
     console.error(errMsg);
-    // throw error;
     return [];
   }
 }
@@ -978,3 +977,12 @@ tour.map((tour)=>{
   console.log(tour.name);
   
 });
+
+//Type script Declaration file
+import { Masu } from './types';
+const example: Masu = {
+  name: "Example Name"
+};
+console.log(example.name);
+
+import bcryptjs from 'bcryptjs'
