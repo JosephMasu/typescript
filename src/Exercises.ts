@@ -934,14 +934,18 @@ console.log(arraryNumbers);
 console.log(arraryStrings);
 
 //fetch Data
+//zod library
+import {z} from 'zod';
 const url = 'https://www.course-api.com/react-tours-project';
-type Tour ={
-  id: string;
-  name: string;
-  info: string;
-  image: string;
-  price: string;
-}
+type Tour = z.infer<typeof tourSchema>
+
+const tourSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  info: z.string(),
+  image: z.string(),
+  price: z.string(),
+})
 
 async function fetchData(url: string):Promise<Tour[]> {
   try {
@@ -952,10 +956,15 @@ async function fetchData(url: string):Promise<Tour[]> {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const data:Tour[] = await response.json();
-    console.log(data);
+    const Rawdata:Tour[] = await response.json();
+    const result = tourSchema.array().safeParse(Rawdata);
+    if(!result.success){
+      throw new Error(`Ivalid data: ${result.error}`);
+      
+    }
+    console.log(result);
     
-    return data;
+    return result.data;
   } catch (error) {
     const errMsg =
       error instanceof Error ? error.message : 'there was an error...';
