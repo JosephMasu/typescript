@@ -1,4 +1,3 @@
-//Modules import files
 import newStudent, {sayHello, person, Student} from "./actions";
 import { someValue } from "./example";
 sayHello('TypeScript', 23);
