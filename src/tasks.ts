@@ -8,7 +8,6 @@ type Task = {
     description: string;
     isCompleted: boolean;
   };
-
   const tasks: Task[] = loadTasks();
 
   tasks.forEach(renderTask);
