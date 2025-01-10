@@ -12,7 +12,6 @@ type Task = {
     const storedTasks = localStorage.getItem('tasks');
     return storedTasks ? JSON.parse(storedTasks) : [];
   }
-  
   taskForm?.addEventListener('submit', (event) => {
     event.preventDefault();
     const taskDescription = formInput?.value;
