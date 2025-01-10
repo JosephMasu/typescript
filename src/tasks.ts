@@ -6,7 +6,6 @@ type Task = {
     isCompleted: boolean;
   };
   const tasks: Task[] = loadTasks();
-
   tasks.forEach(renderTask);
   
   function loadTasks(): Task[] {
