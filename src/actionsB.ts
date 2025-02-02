@@ -10,4 +10,3 @@ const anotherStudent: Student ={
 }
 console.log(anotherStudent);
  
-
