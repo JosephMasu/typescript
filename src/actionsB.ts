@@ -9,4 +9,3 @@ const anotherStudent: Student ={
     age: 32,
 }
 console.log(anotherStudent);
- 
