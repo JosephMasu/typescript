@@ -11,4 +11,5 @@ const anotherStudent: Student ={
     name: 'Bob',
     age: 32,
 }
+
 console.log(anotherStudent);
